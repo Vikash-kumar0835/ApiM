@@ -12,6 +12,7 @@ app.use(cors({optionsSuccessStatus: 200}));  // some legacy browsers choke on 20
 
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
+
 app.get("/api/timestamp/", (req, res) => {
   res.json({ unix: Date.now(), utc: new Date().toUTCString() });
 });
@@ -47,7 +48,6 @@ app.get("/api/timestamp/:date_string", (req, res) => {
 
 
 
-
 /*
 // http://expressjs.com/en/starter/basic-routing.html
 app.get("/", function (req, res) {
@@ -59,10 +59,9 @@ app.get("/", function (req, res) {
 app.get("/api/hello", function (req, res) {
   res.json({greeting: 'hello API'});
 });
-
 */
 
-// listen for requests :)
+
 var listener = app.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);
 });
