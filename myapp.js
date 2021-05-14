@@ -17,7 +17,7 @@ app.get("/api/timestamp/", (req, res) => {
   res.json({ unix: Date.now(), utc: new Date().toUTCString() });
 });
 
-app.get("/api/timestamp/:date_string", (req, res) => {
+app.get("/api/timestamp/:date_string?", (req, res) => {
   let dateString = req.params.date_string;
 
   //A 4 digit number is a valid ISO-8601 for the beginning of that year
@@ -39,7 +39,7 @@ app.get("/api/timestamp/:date_string", (req, res) => {
 
 
 
-
+app.listen(3000,()=>console.log("server started on port 3000...!"));
 
 
 
@@ -61,7 +61,3 @@ app.get("/api/hello", function (req, res) {
 });
 */
 
-
-var listener = app.listen(process.env.PORT, function () {
-  console.log('Your app is listening on port ' + listener.address().port);
-});
